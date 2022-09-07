@@ -8,13 +8,12 @@ export interface comboState {
     value: [] | undefined;
     status: 'idle' | 'loading' | 'failed';
   }
-  
   const initialState: comboState = {
     value: [],
     status: 'idle',
   };
 
-  // Kết nối đến cơ sở dữ liệu của combo ticket
+ 
 
 export const comboTicketAsync = createAsyncThunk(
     'comboticket/getData',
@@ -22,7 +21,7 @@ export const comboTicketAsync = createAsyncThunk(
       const response = await comboapi.fetchAll();
       console.log(response)
   
-      //@ts-ignore
+     
       return response
     }
   );
@@ -45,8 +44,7 @@ export const comboTicketAsync = createAsyncThunk(
     getState
   ) => {
     const response = await comboapi.fetchAll();
-      //@ts-ignore
+     
       dispatch(comboTicketSlice.actions.getData({ ketqua : response}));
   };
-  
   export default comboTicketSlice;
